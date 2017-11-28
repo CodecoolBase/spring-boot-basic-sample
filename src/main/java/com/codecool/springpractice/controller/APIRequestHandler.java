@@ -1,12 +1,12 @@
 package com.codecool.springpractice.controller;
 
-import com.codecool.springpractice.database.DBHandler;
-import com.codecool.springpractice.database.SampleORMEntity;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.codecool.springpractice.model.Customer;
+import com.codecool.springpractice.service.CustomerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 // Use code like this to make an API, for e.g. mobile clients, AJAX calls,..
 
@@ -15,19 +15,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class APIRequestHandler {
 
-    private DBHandler dbHandler;
+    private CustomerService customerService;
 
 
-    public APIRequestHandler(DBHandler dbHandler) {
-        this.dbHandler = dbHandler;
+    public APIRequestHandler(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
-    @RequestMapping(value = "/simple", method = RequestMethod.GET)
-    public String queryDB(@RequestParam(value="name", required=false, defaultValue="Smith") String name) {
+    @GetMapping("/api/customers")
+    public ResponseEntity<List<Customer>> getAllCustomers() {
+        return new ResponseEntity(customerService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/api/customers/{id}")
+    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long id) {
         String result = "";
-        for(SampleORMEntity cust: dbHandler.findByLastName(name)){
-            result += "<div>" + cust.toString() + "</div>";
+        Customer customer = customerService.findById(id);
+        if (customer == null) {
+            return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
         }
-        return "This returns a simple String. Request param: " + name + "<br/>data from Database:<br/>" + result;
+        return new ResponseEntity(customer, HttpStatus.OK);
     }
 }

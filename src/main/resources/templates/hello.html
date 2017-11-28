@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Basic Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h2>Spring Boot Basic Sample</h2>
+    <p th:text="'Hello, ' + ${user.firstName} + '!'" />
+    <p><a href="/gimmeyourname">Change name</a></p>
+    <p><a href="/">Home</a></p>
+</body>
+</html>

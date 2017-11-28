@@ -6,14 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // @SpringBootApplication is an annotation that sets up a Spring boot application. It does lots of
 // things like adds all Beans to the context, sets up the routing internally etc.
 @SpringBootApplication
-public class SpringpracticeApplication {
+public class SpringBootBasicSampleApplication {
 
 	public static void main(String[] args) {
 	    // This launches the application. After executing this command, your app will listen to
         // requests on the configured port (8080) and execute the code that is configured for
         // its route: "/simple" and "/greeting" if a request comes in.
         // Later it could do other things too, like execute a function every X seconds.
-		SpringApplication.run(SpringpracticeApplication.class, args);
+		SpringApplication.run(SpringBootBasicSampleApplication.class, args);
 
     }
 }

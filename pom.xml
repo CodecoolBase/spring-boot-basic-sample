@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.codecool</groupId>
-	<artifactId>springpractice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.codecool.enterprise</groupId>
+	<artifactId>spring-boot-basic-sample</artifactId>
+	<name>Spring Boot Basic Sample Project</name>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
-	<name>springpractice</name>
-	<description>Demo project for Spring Boot</description>
 
     <!-- base POM for Spring boot projects -->
 	<parent>
@@ -19,7 +17,8 @@
 	</parent>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -30,7 +29,7 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!-- Relational database (JPA) support -->
+        <!-- ORM repository (JPA) support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
