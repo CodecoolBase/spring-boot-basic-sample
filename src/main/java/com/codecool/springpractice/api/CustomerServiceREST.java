@@ -1,4 +1,4 @@
-package com.codecool.springpractice.controller;
+package com.codecool.springpractice.api;
 
 import com.codecool.springpractice.model.Customer;
 import com.codecool.springpractice.service.CustomerService;
@@ -13,12 +13,12 @@ import java.util.List;
 // A @Controller where requests return plain strings.
 // This is a "subannotation" of @Controller.
 @RestController
-public class APIRequestHandler {
+public class CustomerServiceREST {
 
     private CustomerService customerService;
 
 
-    public APIRequestHandler(CustomerService customerService) {
+    public CustomerServiceREST(CustomerService customerService) {
         this.customerService = customerService;
     }
 
