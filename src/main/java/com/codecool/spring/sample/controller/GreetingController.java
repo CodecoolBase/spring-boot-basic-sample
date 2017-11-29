@@ -1,6 +1,6 @@
-package com.codecool.springpractice.controller;
+package com.codecool.spring.sample.controller;
 
-import com.codecool.springpractice.model.Customer;
+import com.codecool.spring.sample.model.Customer;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.codecool.springpractice.model;
+package com.codecool.spring.sample.model;
 
 import javax.persistence.*;
 

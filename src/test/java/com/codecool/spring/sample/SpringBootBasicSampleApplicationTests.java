@@ -1,4 +1,4 @@
-package com.codecool.springpractice;
+package com.codecool.spring.sample;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

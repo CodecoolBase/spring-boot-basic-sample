@@ -7,20 +7,21 @@ The following Spring features are included:
 * component and service beans
 * persistence (JPA) and repository interfaces
 * basic web UI (MVC with Thymeleaf)
-* basic RestFUL interface
+* basic RESTful interface
 
 The codebase is built by Spring Boot, no installation or further configuration is needed.
 
 ## Instructions
 
-1. Clone repository as a Maven project.
-1. Copy `project-defaults.yml.example` to `project-defaults.yml` and configure your database connection.
+1. Clone the repository and import it as a Maven project.
+1. Copy `application.example.properties` to `application.properties` and configure your database connection.
 1. Start with `SpringBootBasicSampleApplication`'s `main`.
 
 ## Structure
 
 * `pom.xml`: you can see the Spring Boot dependencies commented there.
-* `src/main/resources/`: `application.properties` is _Spring Boot_'s settings file
+* `src/main/resources/`: 
+  * `application.properties` is _Spring Boot_'s settings file
   * in `static` you can find the static web resources
   * in `templates` are the Thymeleaf template files
 * `src/main/java/`: holds the code

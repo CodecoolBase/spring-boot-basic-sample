@@ -1,7 +1,7 @@
-package com.codecool.springpractice.api;
+package com.codecool.spring.sample.api;
 
-import com.codecool.springpractice.model.Customer;
-import com.codecool.springpractice.service.CustomerService;
+import com.codecool.spring.sample.model.Customer;
+import com.codecool.spring.sample.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

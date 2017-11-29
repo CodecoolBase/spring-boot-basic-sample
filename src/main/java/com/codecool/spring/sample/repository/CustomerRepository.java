@@ -1,6 +1,6 @@
-package com.codecool.springpractice.repository;
+package com.codecool.spring.sample.repository;
 
-import com.codecool.springpractice.model.Customer;
+import com.codecool.spring.sample.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

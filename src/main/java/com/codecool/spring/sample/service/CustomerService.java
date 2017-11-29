@@ -1,7 +1,7 @@
-package com.codecool.springpractice.service;
+package com.codecool.spring.sample.service;
 
-import com.codecool.springpractice.model.Customer;
-import com.codecool.springpractice.repository.CustomerRepository;
+import com.codecool.spring.sample.model.Customer;
+import com.codecool.spring.sample.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
