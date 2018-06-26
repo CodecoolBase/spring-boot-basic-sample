@@ -1,16 +1,17 @@
 package com.codecool.spring.sample.service;
 
 import com.codecool.spring.sample.model.Customer;
+import com.codecool.spring.sample.repository.CustomerRepository;
 import org.springframework.stereotype.Component;
 
 @Component
 public class InitializerBean {
 
-    public InitializerBean(CustomerService customerService) {
-        customerService.saveCustomer(new Customer("Jack", "Smith"));
-        customerService.saveCustomer(new Customer("Adam", "Johnson"));
-        customerService.saveCustomer(new Customer("Kim", "Smith"));
-        customerService.saveCustomer(new Customer("David", "Williams"));
-        customerService.saveCustomer(new Customer("Peter", "Davis"));
+    public InitializerBean(CustomerRepository customerRepository) {
+        customerRepository.save(new Customer("Jack", "Smith"));
+        customerRepository.save(new Customer("Adam", "Johnson"));
+        customerRepository.save(new Customer("Kim", "Smith"));
+        customerRepository.save(new Customer("David", "Williams"));
+        customerRepository.save(new Customer("Peter", "Davis"));
     }
 }

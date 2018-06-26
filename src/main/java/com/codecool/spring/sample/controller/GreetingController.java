@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 // Use code like this to serve webpages for browsers.
 
 @Controller
+// This class has an instance for each active session
 @Scope("session")
 public class GreetingController {
 

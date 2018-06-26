@@ -1,9 +1,7 @@
 package com.codecool.spring.sample.api;
 
 import com.codecool.spring.sample.model.Customer;
-import com.codecool.spring.sample.service.CustomerService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.codecool.spring.sample.repository.CustomerRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,25 +13,19 @@ import java.util.List;
 @RestController
 public class CustomerServiceREST {
 
-    private CustomerService customerService;
+    private CustomerRepository customerRepository;
 
-
-    public CustomerServiceREST(CustomerService customerService) {
-        this.customerService = customerService;
+    public CustomerServiceREST(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     @GetMapping("/api/customers")
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        return new ResponseEntity(customerService.findAll(), HttpStatus.OK);
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll();
     }
 
     @GetMapping("/api/customers/{id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long id) {
-        String result = "";
-        Customer customer = customerService.findById(id);
-        if (customer == null) {
-            return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity(customer, HttpStatus.OK);
+    public Customer getCustomerById(@PathVariable("id") Long id) {
+        return customerRepository.findById(id).get();
     }
 }

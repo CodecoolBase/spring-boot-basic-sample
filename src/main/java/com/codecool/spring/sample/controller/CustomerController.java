@@ -1,44 +1,44 @@
 package com.codecool.spring.sample.controller;
 
 import com.codecool.spring.sample.model.Customer;
-import com.codecool.spring.sample.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.codecool.spring.sample.repository.CustomerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 public class CustomerController {
 
-    @Autowired
-    CustomerService customerService;
+    private CustomerRepository customerRepository;
+
+    public CustomerController(CustomerRepository service) {
+        this.customerRepository = service;
+    }
 
     public List<Customer> getAllCustomers() {
-        return customerService.findAll();
+        return customerRepository.findAll();
     }
 
     public String addCustomer(Customer customer) {
-        customerService.saveCustomer(customer);
+        customerRepository.save(customer);
         return "customers";
     }
 
-    @RequestMapping(value = "/customers", method = RequestMethod.GET)
+    @GetMapping("/customers")
     public String listCustomersView(Model model) {
         model.addAttribute("customers", getAllCustomers());
         return "customers";
     }
 
-    @RequestMapping(value = "/addcustomer", method = RequestMethod.GET)
+    @GetMapping("/addcustomer")
     public String addCustomerForm(Model model) {
         model.addAttribute("customer", new Customer());
         return "addcustomer";
     }
 
-    @RequestMapping(value = "/addcustomer", method = RequestMethod.POST)
+    @PostMapping("/addcustomer")
     public String addCustomerForm(@ModelAttribute Customer customer) {
         addCustomer(customer);
         return "redirect:customers";
